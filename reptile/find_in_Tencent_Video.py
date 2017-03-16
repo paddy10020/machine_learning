@@ -9,6 +9,7 @@ class FUC:
 	def __init__(self):
 		self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}
 		self.comment_num = 20
+		self.comments_list = []
 
 	def changeCommentNum(self, num):
 		self.comment_num = num
@@ -47,7 +48,8 @@ class FUC:
 		self.js = json.loads(self.js_txt)
 		self.comments = self.js['data']['commentid']
 		for i in self.comments:
-			print(i['content'])
+			# print(i['content'])
+			self.comments_list.append(i['content'])
 
 	def find(self, URL):
 		self.url = URL
@@ -59,9 +61,18 @@ class FUC:
 			self.FindTargetId()
 			self.FindComment()
 
+	def returnComments(self):
+		return self.comments_list
 
-file = open('find_href.txt', 'r')
-a = FUC()
+
+# file = open('find_href.txt', 'r')
+
 # a.find('http://v.qq.com/x/cover/j6cgzhtkuonf6te/d0022fbmgl2.html')
 # a.findListUrl(file.readlines())
+a = FUC()
 a.findListUrl(a.FindUrlList('http://v.qq.com/detail/j/j6cgzhtkuonf6te.html'))
+commentList = a.returnComments()
+file = open('find_comments.txt', 'w')
+for i in commentList:
+	file.write(i + '\n')
+file.close()
