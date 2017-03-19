@@ -1,0 +1,9 @@
+// 将设置放入此文件中以覆盖默认值和用户设置。
+{
+    // "python.envFile": "${workspaceRoot}/.env"
+    // Control whether flake8 linting is enabled for python files or not.
+    "docker-linter.flake8.enable": true,
+    // Alt + Shift + F就可以自动格式化代码
+    "python.formatting.provider": "yapf"
+
+}
