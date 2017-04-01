@@ -2,6 +2,7 @@
 # 统计两个字符一起出现的概率
 
 import json
+import os
 file = open('train_count.txt', 'r', encoding='utf-8')
 txt_list = file.readlines()
 file.close()
@@ -11,7 +12,7 @@ for i in txt_list:
     tmp = json.loads(i.strip('\n'))
     char_list_dict.append(tmp)
 
-test_txt = '大强'
+test_txt = input("Please input your character: ")
 tmp1 = test_txt[0]
 tmp2 = test_txt[1]
 tmp1_dict = dict()
