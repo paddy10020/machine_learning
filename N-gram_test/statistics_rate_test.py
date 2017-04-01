@@ -29,4 +29,5 @@ if tmp1 in tmp2_dict.keys():
     rate2 = tmp2_dict[tmp1] / tmp2_dict['count']
     print(rate1*rate2)
 else:
-    print(0)
+    rate2 = 1 / tmp2_dict['count']
+    print(rate2)
